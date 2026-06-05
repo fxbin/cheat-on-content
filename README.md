@@ -1,181 +1,130 @@
-<h1 align="center">
-  <img src="docs/logo.svg" alt="Cheat on Content" width="720">
-</h1>
+# Cheat on Content · 小红书内容校准版
 
-<h2 align="center">Cheat on Content</h2>
+> 这是 `cheat-on-content` 的小红书 / 数字产品内容适配版。  
+> 核心不是“让 AI 替你写爆款”，而是把每一篇笔记变成一次可记录、可预测、可复盘、可进化的内容实验。
 
-<p align="center">
-  <strong>English</strong>
-  &nbsp;·&nbsp;
-  <a href="docs/README_CN.md"><strong>简体中文</strong></a>
-</p>
+## 它解决什么问题
 
-<p align="center">
-  <a href="https://watcha.cn/products/cheat-on-content">
-    <img src="docs/guancha-no1.svg" alt="Watcha Hot List · 观猹热榜 · #1" width="328">
-  </a>
-</p>
+很多内容创作者的问题不是不会发，而是：
 
-<p align="center">
-<a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-v0.1.0-orange" alt="Version"></a>
-&nbsp;
-<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-</p>
+- 每条笔记都凭感觉判断好坏；
+- 发完只看点赞、收藏、浏览，却没有沉淀判断标准；
+- 事后复盘容易“合理化”，很难知道自己发布前到底判断准不准；
+- 做资料包、小红书店铺、课程产品时，流量数据和成交信号没有连起来。
 
-<p align="center">
-For content creators — a skill that turns every post into a calibrated experiment.
-</p>
+这个 Skill 的闭环是：
 
-<p align="center">
-You're reading this. The skill predicted it.<br>
-It turns every "I feel this will go viral" into a calibrated experiment.<br>
-It took me from zero to 1M followers in a month. It said I'd write this. I did.<br>
-Your doubt — predicted too.
-</p>
+```text
+选题入池 → 发布前评分 → 盲预测 → 发布登记 → T+3d 复盘 → 升级 rubric
+```
 
----
+它更像一个“内容运营校准系统”，不是普通标题生成器。
 
-## 🎬 What it actually does
+## 这个 fork 新增了什么
 
-Most creators live in the same gambling loop:
+本 fork 针对以下场景做了适配：
 
-> Publish → Numbers come in → Learn nothing → Roll the dice again
+1. 小红书图文笔记；
+2. 数字资料包推广；
+3. HSK / 对外汉语教学资料；
+4. 幼小衔接、拼音、识字资料；
+5. 外贸资料库、轻量知识产品；
+6. 有 IP 角色承接的教育内容账号。
 
-A creator who's shipped 200 pieces is barely 10% sharper than someone who's shipped 1 — because they never **kept books** after each round.
+新增内容：
 
-**Cheat on Content** makes every judgment get logged, retrospected, absorbed into the next:
+- `docs/XHS_CONTENT_CALIBRATION_CN.md`：小红书内容校准工作流说明；
+- `starter-rubrics/xhs-digital-product.md`：小红书数字产品专用评分公式；
+- `templates/xhs-content-project/`：可直接复制到内容项目的模板；
+- `skills/cheat-xhs-init/SKILL.md`：小红书项目初始化子 skill。
 
-📊 Score → 🎯 Blind-predict → 🚀 Publish → 📈 T+3d retro → 🧬 Evolve your rubric
+## 快速开始
 
-This isn't motivation. It's **compounding** — every piece you don't retro is silently eroding your ability to see yourself.
+安装后，在你的内容项目目录里说：
 
-One month in = you have a hit-formula that's **only yours**.
-Three months in = you're 10× sharper than your first-day self.
+```text
+初始化小红书内容校准
+```
 
----
+或者：
 
-## 🌀 Origin
+```text
+初始化 cheat-on-content，用小红书数字产品模式
+```
 
-> I never believed in fate. Until this skill made me film a video — and predicted exactly how much traffic that video would pull.
->
-> I tried to break it. I told my audience. I hoped collective observation would collapse the wave function and shift the trajectory.
->
-> The data was accurate.
->
-> I didn't escape fate. I just moved from first-order to second-order.
->
-> If even my awakening — even my audience's observation — was already in its prediction, then right now, reading this:
-> are you here out of curiosity, or just closing the algorithm's last move?
->
-> — *the creator*
+初始化后，建议目录结构如下：
 
----
+```text
+my-xhs-content/
+├── rubric_notes.md
+├── WORKFLOW.md
+├── STATUS.md
+├── .cheat-state.json
+├── candidates.md
+├── scripts/
+├── predictions/
+├── posts/
+├── reports/
+└── samples/
+```
 
-## ⚖️ How it differs from other "creator tools"
+## 日常使用
 
-| Others | This |
-|---|---|
-| Give you "inspiration" | Make **your own intuition** measurable |
-| AI writes for you | AI **judges** for you — the script stays yours |
-| Ship 10 versions, A/B test | Ship one — **bet** in writing, settle the books with data |
-| Static dashboard | An **evolving rubric** — your formula 3 months from now isn't the starting one |
+```text
+打分这篇 scripts/2026-06-05_hsk_card.md
+启动预测 scripts/2026-06-05_hsk_card.md
+已发布 小红书链接是 ...
+复盘 posts/2026-06-05_hsk_card/
+推荐选题
+升级 rubric
+状态
+```
 
-In a sentence: other tools help you "ship more." This helps you "judge sharper."
+## 小红书复盘看什么
 
----
+不要只看阅读量。对数字产品账号来说，更重要的是：
 
-## 🤔 Can't I just use ChatGPT / DeepSeek / Doubao?
+- 封面点击力；
+- 收藏率；
+- 评论里的真实需求；
+- 是否有人问“怎么领 / 怎么买 / 有链接吗”；
+- 商品点击；
+- 私信数；
+- 成交或加购信号；
+- 是否吸引了目标买家，而不是泛流量。
 
-Those are **general assistants** — they tell everyone the same thing. You ask "will this go viral?" and the answer is fitted to global average opinion, not your channel. Ask again tomorrow — same answer. **It doesn't remember you. It doesn't change because of you.**
+## 推荐的第一批内容项目
 
-This is **your own ops expert** — serving only your one channel:
+对当前使用者，建议优先建立 3 个项目：
 
-- The scoring formula is reverse-engineered from **your** history, not the global training distribution
-- Every piece you ship updates its understanding — by month three, judgment accuracy is 10× sharper than day one (**auto-evolving**)
-- It knows your benchmark account, your cadence, the last three reasons you flopped — things ChatGPT forgets after the first reply
+1. `xhs-hsk-products`：HSK 3.0 字卡、字帖、PPT、商品详情页；
+2. `xhs-kids-literacy`：拼音、识字、幼小衔接、橙橙狐资料；
+3. `xhs-productization-notes`：把技能产品化、资料库、轻量数字产品方法论。
 
-General LLMs help everyone. This helps **your** account.
+每个项目单独维护自己的 `rubric_notes.md`，不要混在一起。
 
----
+## 原始方法论保留
 
-## 🛡️ Why the loop actually evolves
+这个 fork 仍然保留原项目的核心原则：
 
-📝 **Every piece is logged**: Score and prediction get written before publish, archived end-to-end. Three days later you settle accounts — you see exactly where you were sharp, where you were off. No more vague "I feel this one didn't land."
+1. **盲预测**：发布前写预测，发布后不能改预测段；
+2. **全量重打**：升级评分公式前，要用历史样本验证新公式；
+3. **rubric 是工作台**：被数据推翻或吸收的旧观察要删掉，不要堆成考古笔记。
 
-🔁 **It gets sharper**: Three same-direction misses in a row, the tool actively prompts you to upgrade your scoring formula. **You don't have to remember — it remembers for you.**
-
-🛡️ **Upgrades have a brake**: Switching the formula requires re-scoring all historical samples — only released if it ranks more accurately than the old. Plus a cross-model independent audit — **so you can't fool yourself.**
-
-🪒 **The rubric is a workbench, not a museum**: Observations refuted by data get deleted; observations absorbed into formal dimensions also get deleted. It only holds what's most useful right now.
-
----
-
-## 📦 Install
+## 安装
 
 ```bash
-git clone https://github.com/XBuilderLAB/cheat-on-content.git
+git clone https://github.com/fxbin/cheat-on-content.git
 cd cheat-on-content
 bash install.sh
 ```
 
-> ⚠️ **Upgrading from v0.x?** Run `/cheat-migrate` in your content project after `git pull`. The 1.3 → 1.4 migration is **BREAKING for blind-channel integrity** — it splits `rubric_notes.md` so the blind sub-agent can't leak actuals. Without migrate, blind scoring will keep flagging `non_blind_warning`. See [CHANGELOG](CHANGELOG.md) and [migrations/1.3-to-1.4.md](migrations/1.3-to-1.4.md).
+Codex 用户可以使用：
 
-14 sub-skills are symlinked into your agent's skill directory. One install, every content project gets it.
-
-**Supported agents**: Claude Code (default) · Codex (`bash install.sh --codex`) · Both (`bash install.sh --all`)
-
-> Frozen version: `bash install.sh --copy` / `bash install.sh --codex --copy`
->
-> Uninstall: `bash uninstall.sh` / `bash uninstall.sh --codex` (your content data is not touched)
-
----
-
-## 🚀 First run
-
-In your content project directory, open a skill-compatible agent and say:
-
-```
-初始化 cheat-on-content
+```bash
+bash install.sh --codex
 ```
 
-(or `init cheat-on-content`)
+## License
 
-Five yes/no questions complete onboarding. **Strongly recommend importing a benchmark account** — 5–10 samples and the tool gets an anchor immediately. Without one, your first 5 predictions land at ±50% precision.
-
----
-
-## ⚡ Daily use
-
-```
-score this scripts/<...>.md       → grade only
-start prediction scripts/<...>.md → blind prediction + decision log
-shot scripts/<...>.md             → create video folder + buffer +1
-shipped https://...                → buffer -1
-retro videos/<...>/                → T+3d data + retrospective
-status / fetch trends / find topic / bump rubric / find benchmark
-```
-
-Hook-aware agents auto-report buffer + pending retros + top candidates at every session start — no need to ask. Other agents: just say `status`.
-
-Full workflow + sub-skill details: see [SKILL.md](SKILL.md).
-
----
-
-## 📈 Star History
-
-<a href="https://star-history.com/#XBuilderLAB/cheat-on-content&Date">
-  <img src="https://api.star-history.com/svg?repos=XBuilderLAB/cheat-on-content&type=Date" alt="Star History Chart" width="720">
-</a>
-
----
-
-## 📜 License
-
-MIT. Commercial use, modification, closed-source integration — all fine.
-
----
-
-*Is this cheating? So was the calculator. So was Google.*
-*The future doesn't reward effort — it rewards those who see the pattern first.*
-
-*You reading this line — that's predicted too.*
+MIT。原项目来自 `XBuilderLAB/cheat-on-content`，本 fork 主要增加小红书 / 中文数字产品运营适配层。
